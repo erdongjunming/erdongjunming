@@ -1,0 +1,25 @@
+{
+  "plan_version":"1.0.0",
+  "contract_version":"1.0.0",
+  "env_version":"reg4/1.0.0",
+  "suggested_project_root":"D:\\AIProgramWorldLab",
+  "modules":[
+    {"id":"M00","phase":"P0","depends_on":[],"weight":1,"card":"03-modules/M00.md","owns":["pyproject.toml",".gitignore","README.md","src/world_model_lab/__init__.py","scripts/","tests/integration/",".github/","docs/plan-v1/"],"gate":"G0","status":"not_started"},
+    {"id":"M01","phase":"P0","depends_on":["M00"],"weight":3,"card":"03-modules/M01.md","owns":["contracts/","src/world_model_lab/contracts/","tests/contracts/"],"gate":"G0","status":"not_started"},
+    {"id":"M02","phase":"P1","depends_on":["M01"],"weight":2,"card":"03-modules/M02.md","owns":["src/world_model_lab/env/","tests/env/"],"gate":"G1","status":"not_started"},
+    {"id":"M03","phase":"P1","depends_on":["M01"],"weight":2,"card":"03-modules/M03.md","owns":["src/world_model_lab/verification/","tests/verification/"],"gate":"G1","status":"not_started"},
+    {"id":"M04","phase":"P1","depends_on":["M02"],"weight":5,"card":"03-modules/M04.md","owns":["src/world_model_lab/storage/","tests/storage/"],"gate":"G1","status":"not_started"},
+    {"id":"M05","phase":"P2","depends_on":["M02","M03"],"weight":2,"card":"03-modules/M05.md","owns":["src/world_model_lab/tasks/","tasks/","tests/tasks/"],"gate":"G2","status":"not_started"},
+    {"id":"M06","phase":"P2","depends_on":["M02","M03"],"weight":3,"card":"03-modules/M06.md","owns":["src/world_model_lab/planning/","tests/planning/"],"gate":"G2","status":"not_started"},
+    {"id":"M07","phase":"P2","depends_on":["M03","M04","M06"],"weight":5,"card":"03-modules/M07.md","owns":["src/world_model_lab/orchestration/","tests/orchestration/"],"gate":"G2","status":"not_started"},
+    {"id":"M08","phase":"P3","depends_on":["M01"],"weight":3,"card":"03-modules/M08.md","owns":["src/world_model_lab/adapters/","tests/adapters/","configs/providers/"],"gate":"G3","status":"not_started"},
+    {"id":"M09","phase":"P2","depends_on":["M05","M07"],"weight":3,"card":"03-modules/M09.md","owns":["src/world_model_lab/evaluation/","tests/evaluation/"],"gate":"G2","status":"not_started"},
+    {"id":"M10","phase":"P2","depends_on":["M07","M09"],"weight":2,"card":"03-modules/M10.md","owns":["src/world_model_lab/cli/","src/world_model_lab/__main__.py","configs/local/","tests/cli/","docs/user/"],"gate":"G2","status":"not_started"},
+    {"id":"M11","phase":"P4","depends_on":["M08","M09"],"weight":5,"card":"03-modules/M11.md","owns":["src/world_model_lab/world_models/","research/","tests/world_models/"],"gate":"G4","status":"not_started"}
+  ],
+  "shared_files_owner":"M00",
+  "public_contracts_owner":"M01",
+  "integration_test_owner":"M00",
+  "contract_files":["contracts/v1/schema.json","contracts/v1/types.pyi","contracts/v1/ports.pyi","contracts/v1/golden.json"],
+  "required_handoff_fields":["module_id","base_commit","head_commit","contract_version","contract_digest","changed_files","public_ports","tests","limitations","interface_change_requests"]
+}
